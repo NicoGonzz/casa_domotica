@@ -1,0 +1,17 @@
+div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150vh;
+}
+
+button {
+  width: 50%;
+  border-radius: 12px;
+  margin-top: 8px;
+  padding: 12px;
+  font-size: 15px;
+  background: rgb(80, 80, 88);
+  color: black;
+  display: block;
+}

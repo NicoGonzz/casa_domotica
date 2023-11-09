@@ -1,12 +1,11 @@
-/* Estilos para dispositivos móviles (hasta 767px de ancho) */
 
 div {
-  display: block; /* Cambiamos de grid a bloque en dispositivos móviles */
-  height: auto; /* Altura automática en dispositivos móviles */
+  display: block;
+  height: auto;
 }
 
 div header {
-  background-color: #3E51B5;
+  background-color: #dd761a;
   color: white;
   padding: 1em;
   box-shadow: 1px 2px 4px 0 rgba(21, 99, 157, 0.16);
@@ -14,13 +13,13 @@ div header {
 }
 
 div nav {
-  border-right: none; /* Eliminamos el borde derecho en dispositivos móviles */
+  border-right: none;
   background-color: #fff;
 }
 
 div nav a {
-  margin: 0;
-  padding: 1em; /* Aumentamos el espacio de relleno en dispositivos móviles */
+  margin: 0 auto;
+  padding: 1em;
   cursor: pointer;
   position: relative;
   display: block;
@@ -32,8 +31,11 @@ div main {
   background-color: #f3f8fb;
   padding: 1em;
 }
+div nav img {
+  display: block;
+  margin: 0 auto;
+}
 
-/* Estilos para dispositivos de pantalla más grande (768px y superior) */
 @media (min-width: 768px) {
   div {
     display: grid;
