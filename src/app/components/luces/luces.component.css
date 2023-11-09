@@ -1,17 +1,52 @@
-div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 150vh;
+.luces {
+  background-color: #f3f8fb;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
 }
 
+.estadisticas {
+  background-color: #f3f8fb;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.boton-control button {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.boton-activo {
+  background-color: green;
+  color: white;
+}
+
+.boton-inactivo {
+  background-color: red;
+  color: white;
+}
 button {
-  width: 50%;
-  border-radius: 12px;
-  margin-top: 8px;
-  padding: 12px;
-  font-size: 15px;
-  background: rgb(80, 80, 88);
-  color: black;
-  display: block;
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 16px;
+  font-size: 16px;
+  background-color: #3E51B5;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2b3f8f;
 }
