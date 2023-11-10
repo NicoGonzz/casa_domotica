@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { LucesComponent } from './components/luces/luces.component';
 import { PuertasComponent } from './components/puertas/puertas.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
