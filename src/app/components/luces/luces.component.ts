@@ -3,6 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { environmet } from 'src/interface/config/environment';
 
+interface LucesButton {
+  id: number;
+  estado: string;
+}
+
 @Component({
   selector: 'app-luces',
   templateUrl: './luces.component.html',
@@ -10,6 +15,13 @@ import { environmet } from 'src/interface/config/environment';
 })
 export class LucesComponent {
   estadisticasActivas = false;
+  lucesButtons: LucesButton[] = [
+    { id: 1, estado: 'OFF' },
+    { id: 2, estado: 'OFF' },
+    { id: 3, estado: 'OFF' },
+    { id: 4, estado: 'OFF' },
+    { id: 5, estado: 'OFF' }
+  ];
 
   constructor(private http: HttpClient) {}
 
@@ -17,9 +29,18 @@ export class LucesComponent {
     this.estadisticasActivas = !this.estadisticasActivas;
   }
 
+  getTextoBoton() {
+    return this.estadisticasActivas ? 'ON' : 'OFF';
+  }
   getBotonClase() {
     return this.estadisticasActivas ? 'boton-activo' : 'boton-inactivo';
   }
+  private actualizarEstadoServidor() {
+    console.log('Estoy funcionando');
+    // Lógica para actualizar el estado en el servidor
+    // Puedes agregar aquí la lógica que sea necesaria
+  }
+
   EncenderOrden(orderId: number, statusLed: string) {
     console.log('Estoy funcionando');
     const url = `${environmet.url}`;
