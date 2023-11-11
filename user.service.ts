@@ -14,6 +14,6 @@ export class UserService {
   }
 
   getData(): Observable<any> {
-    return this.http.get(`${this.ulrr}/id`)
+    return this.http.get(`${this.ulrr}/Orden/id`)
   }
 }
