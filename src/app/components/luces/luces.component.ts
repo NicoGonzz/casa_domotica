@@ -42,15 +42,14 @@ export class LucesComponent {
   }
 
   EncenderOrden(orderId: number, statusLed: string) {
-
-
     const url = `${environmet.url}/Orden/${orderId}`;
-    console.log('Estoy funcionando aca' + url);
+    console.log('Estoy funcionando aca ' + url);
     const body = { statusLed };
 
     this.http.patch(url, body).subscribe(
       (response) => {
         console.log('Orden actualizada', response);
+
       },
       (error) => {
         console.error('Error al actualizar la orden', error);
