@@ -6,7 +6,7 @@
 </div>
 
 <div class="puertas">
-  <button>Puerta Principal</button>
-  <button>Puerta Garage</button>
+  <button (click)="AccionPuerta(6)" [ngClass]="getBotonColor(6)">Puerta Principal</button>
+  <button (click)="AccionPuerta(7)" [ngClass]="getBotonColor(7)">Puerta Garage</button>
 </div>
 

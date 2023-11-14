@@ -39,8 +39,6 @@ export class LucesComponent {
     this.http.patch(url, body).subscribe(
       (response) => {
         console.log('Orden actualizada', response);
-
-        // Actualizar el estado local después de actualizar en el servidor
         const luz = this.lucesButtons.find(luz => luz.id === luzId);
         if (luz) {
           luz.estado = nuevoEstado;
