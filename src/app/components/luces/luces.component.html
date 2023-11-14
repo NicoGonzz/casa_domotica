@@ -3,14 +3,12 @@
   <!-- Gráfica de estadísticas (puedes usar una biblioteca de gráficos) -->
 </div>
 <div class="boton-control">
-  <button (click)="toggleEstadisticas()" [ngClass]="getBotonClase()">
-    {{ estadisticasActivas ? 'ON' : 'OFF' }}
-  </button>
+
 </div>
 <div class="luces">
-  <button (click)="EncenderOrden(1, 'LOW')">Luces Cocina</button>
-  <button (click)="EncenderOrden(2, 'LOW')">Luces Sala</button>
-  <button (click)="EncenderOrden(3, 'LOW')">Luces Baño</button>
-  <button (click)="EncenderOrden(4, 'LOW')">Luces Habitación</button>
-  <button (click)="EncenderOrden(5, 'LOW')">Luces Garaje</button>
+  <button (click)="EncenderOrden(1)">Luces Cocina - {{ getEstadoLuz(1) }}</button>
+  <button (click)="EncenderOrden(2)">Luces Sala - {{ getEstadoLuz(2) }}</button>
+  <button (click)="EncenderOrden(3)">Luces Baño - {{ getEstadoLuz(3) }}</button>
+  <button (click)="EncenderOrden(4)">Luces Habitación - {{ getEstadoLuz(4) }}</button>
+  <button (click)="EncenderOrden(5)">Luces Garaje - {{ getEstadoLuz(5) }}</button>
 </div>

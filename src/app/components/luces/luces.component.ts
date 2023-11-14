@@ -29,32 +29,36 @@ export class LucesComponent {
     this.estadisticasActivas = !this.estadisticasActivas;
   }
 
-  getTextoBoton() {
-    return this.estadisticasActivas ? 'ON' : 'OFF';
-  }
-  getBotonClase() {
-    return this.estadisticasActivas ? 'boton-activo' : 'boton-inactivo';
-  }
-  private actualizarEstadoServidor() {
-    console.log('Estoy funcionando');
-    // Lógica para actualizar el estado en el servidor
-    // Puedes agregar aquí la lógica que sea necesaria
-  }
-
-  EncenderOrden(orderId: number, statusLed: string) {
-    const url = `${environmet.url}/Orden/${orderId}`;
-    console.log('Estoy funcionando aca ' + url);
-    const body = { statusLed };
+  private actualizarEstadoServidor(luzId: number, nuevoEstado: string) {
+    const url = `${environmet.url}/Orden/${luzId}`;
+    const body = { statusLed: nuevoEstado };
 
     this.http.patch(url, body).subscribe(
       (response) => {
         console.log('Orden actualizada', response);
 
+        // Actualizar el estado local después de actualizar en el servidor
+        const luz = this.lucesButtons.find(luz => luz.id === luzId);
+        if (luz) {
+          luz.estado = nuevoEstado;
+        }
       },
       (error) => {
         console.error('Error al actualizar la orden', error);
       }
     );
+  }
+
+  EncenderOrden(luzId: number) {
+    const luz = this.lucesButtons.find(luz => luz.id === luzId);
+    if (luz) {
+      const nuevoEstado = luz.estado === 'LOW' ? 'HIGH' : 'LOW';
+      this.actualizarEstadoServidor(luzId, nuevoEstado);
+    }
+  }
+  getEstadoLuz(luzId: number): string {
+    const luz = this.lucesButtons.find(luz => luz.id === luzId);
+    return luz?.estado || 'OFF';
   }
 
 }
