@@ -46,7 +46,16 @@ button {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
+.boton-azul {
+  background-color: #3E51B5;
+}
+.boton-rojo {
+  background-color: red;
+}
 
+.boton-verde {
+  background-color: green;
+}
 button:hover {
   background-color: #2b3f8f;
 }

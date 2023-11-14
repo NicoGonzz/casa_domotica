@@ -1,14 +1,25 @@
 <div class="estadisticas">
-  <h4>El consumo de la energia hasta ahora es de: 40 WATS</h4>
+  <h4>El consumo de la energia hasta ahora es de: {{ EnergiaTotal }} WS</h4>
+  <h3>Energia consumida por cuarto</h3>
+    <h5>Energia Consumida en la cocina:  {{ calcularEnergia(1) }}WS</h5>
+    <h5>Energia Consumida en la Sala:  {{ calcularEnergia(2) }}WS</h5>
+    <h5>Energia Consumida en el Baño:  {{ calcularEnergia(3) }}WS</h5>
+    <h5>Energia Consumida en la Habitacion:  {{ calcularEnergia(4) }}WS</h5>
+    <h5>Energia Consumida en el Garaje:  {{ calcularEnergia(5) }}WS</h5>
   <!-- Gráfica de estadísticas (puedes usar una biblioteca de gráficos) -->
 </div>
 <div class="boton-control">
 
 </div>
 <div class="luces">
-  <button (click)="EncenderOrden(1)">Luces Cocina - {{ getEstadoLuz(1) }}</button>
-  <button (click)="EncenderOrden(2)">Luces Sala - {{ getEstadoLuz(2) }}</button>
-  <button (click)="EncenderOrden(3)">Luces Baño - {{ getEstadoLuz(3) }}</button>
-  <button (click)="EncenderOrden(4)">Luces Habitación - {{ getEstadoLuz(4) }}</button>
-  <button (click)="EncenderOrden(5)">Luces Garaje - {{ getEstadoLuz(5) }}</button>
+  <button (click)="EncenderOrden(1)" [ngClass]="getBotonColor(1)">
+    Luces Cocina - {{ getEstadoLuz(1) }}</button>
+  <button (click)="EncenderOrden(2)" [ngClass]="getBotonColor(2)">
+    Luces Sala - {{ getEstadoLuz(2) }}</button>
+  <button (click)="EncenderOrden(3)" [ngClass]="getBotonColor(3)">
+    Luces Baño - {{ getEstadoLuz(3) }}</button>
+  <button (click)="EncenderOrden(4)" [ngClass]="getBotonColor(4)">
+    Luces Habitación - {{ getEstadoLuz(4) }}</button>
+  <button (click)="EncenderOrden(5)" [ngClass]="getBotonColor(5)">
+    Luces Garaje - {{ getEstadoLuz(5) }}</button>
 </div>

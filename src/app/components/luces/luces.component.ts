@@ -22,6 +22,9 @@ export class LucesComponent {
     { id: 4, estado: 'OFF' },
     { id: 5, estado: 'OFF' }
   ];
+  private tiempoEncendido: number[] = [0, 0, 0, 0, 0];
+  private potenciaNominal = 50; // Puedes ajustar esto según la potencia nominal de tus luces
+
 
   constructor(private http: HttpClient) {}
 
@@ -47,6 +50,9 @@ export class LucesComponent {
         console.error('Error al actualizar la orden', error);
       }
     );
+    if (nuevoEstado === 'HIGH') {
+      this.iniciarConteoTiempo(luzId);
+    }
   }
 
   EncenderOrden(luzId: number) {
@@ -60,6 +66,30 @@ export class LucesComponent {
     const luz = this.lucesButtons.find(luz => luz.id === luzId);
     return luz?.estado || 'OFF';
   }
+  getBotonColor(id: number): string {
+    const luz = this.lucesButtons.find(luz => luz.id === id);
+    return luz?.estado === 'LOW' ? 'boton-rojo' : luz?.estado === 'HIGH' ? 'boton-verde' : 'boton-azul';
+  }
+  private iniciarConteoTiempo(id: number) {
+    setInterval(() => {
+      const luz = this.lucesButtons.find(luz => luz.id === id);
+      if (luz?.estado === 'HIGH') {
+        this.tiempoEncendido[id - 1]++;
+      }
+    }, 1000); // Actualiza cada segundo
+  }
 
+
+
+  public calcularEnergia(luzId: number): number {
+    return this.potenciaNominal * this.tiempoEncendido[luzId - 1];
+  }
+  get EnergiaTotal(): number {
+    let energiaTotal = 0;
+    for (let i = 0; i < this.tiempoEncendido.length; i++) {
+      energiaTotal += this.calcularEnergia(i + 1);
+    }
+    return energiaTotal;
+  }
 }
 
