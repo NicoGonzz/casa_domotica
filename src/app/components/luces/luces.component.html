@@ -8,8 +8,8 @@
     <h5>Energia Consumida en el Garaje:  {{ calcularEnergia(5) }}WS</h5>
   <!-- Gráfica de estadísticas (puedes usar una biblioteca de gráficos) -->
 </div>
-<div class="boton-control">
-
+<div class="estadisticasLuces">
+  <canvas id="energyChart" width="300" height="300"></canvas>
 </div>
 <div class="luces">
   <button (click)="EncenderOrden(1)" [ngClass]="getBotonColor(1)">
