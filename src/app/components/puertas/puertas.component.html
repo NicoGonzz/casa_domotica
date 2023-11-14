@@ -1,12 +1,14 @@
 <div class="estadisticas">
   <h4>Estadísticas de Puertas</h4>
-  <p>Puerta Principal: {{ puertaPrincipalEstado }}</p>
-  <p>Puerta Garage: {{ puertaGarageEstado }}</p>
+  <p>Puerta Principal: {{ getEstadoBoton(6) }}</p>
+  <p>Puerta Garage: {{ getEstadoBoton(7) }}</p>
   <p>Veces Abierta la Puerta Principal: {{ vecesAbiertaPuertaPrincipal }}</p>
+  <p *ngIf="ultimaAperturaPuertaPrincipal">Última Apertura puerta principal: {{ ultimaAperturaPuertaPrincipal }}</p>
+  <p *ngIf="ultimaAperturaPuertaGarage">Última Apertura puerta principal: {{ ultimaAperturaPuertaGarage }}</p>
 </div>
 
 <div class="puertas">
-  <button (click)="AccionPuerta(6)" [ngClass]="getBotonColor(6)">Puerta Principal</button>
-  <button (click)="AccionPuerta(7)" [ngClass]="getBotonColor(7)">Puerta Garage</button>
+  <button (click)="AccionPuerta(6)" [ngClass]="getBotonColor(6)">Puerta principal {{ getEstadoBoton(6) }}</button>
+  <button (click)="AccionPuerta(7)" [ngClass]="getBotonColor(7)">Puerta Garage {{ getEstadoBoton(7) }}</button>
 </div>
 
