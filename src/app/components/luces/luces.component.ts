@@ -17,11 +17,11 @@ interface LucesButton {
 export class LucesComponent implements OnInit{
   estadisticasActivas = false;
   lucesButtons: LucesButton[] = [
-    { id: 1, estado: 'OFF' },
-    { id: 2, estado: 'OFF' },
-    { id: 3, estado: 'OFF' },
-    { id: 4, estado: 'OFF' },
-    { id: 5, estado: 'OFF' }
+    { id: 1, estado: 'LOW' },
+    { id: 2, estado: 'LOW' },
+    { id: 3, estado: 'LOW' },
+    { id: 4, estado: 'LOW' },
+    { id: 5, estado: 'LOW' }
   ];
   private tiempoEncendido: number[] = [0, 0, 0, 0, 0];
   private potenciaNominal = 50; // Puedes ajustar esto según la potencia nominal de tus luces
@@ -41,8 +41,44 @@ export class LucesComponent implements OnInit{
 
   toggleEstadisticas() {
     this.estadisticasActivas = !this.estadisticasActivas;
+
   }
 
+  /*getDataFromServer() {
+    const url1 = `${environmet.url}/Estadisticas/20231114`; // Reemplaza con la URL correcta para obtener datos del servidor
+    this.http.get<any>(url1).subscribe(
+      (response) => {
+        if (response.status === 'success') {
+          this.lucesButtons = response.data;
+        } else {
+          console.error('Error al obtener datos del servidor');
+        }
+      },
+      (error) => {
+        console.error('Error al obtener datos del servidor', error);
+      }
+    );
+  }*/
+
+  private traerDataServidor(luzId: number, nuevoEstado: string) {
+    const url = `${environmet.url}/Orden/${luzId}`;
+    const body = { statusLed: nuevoEstado };
+    this.http.patch(url, body).subscribe(
+      (response) => {
+        console.log('Orden actualizada', response);
+        const luz = this.lucesButtons.find(luz => luz.id === luzId);
+        if (luz) {
+          luz.estado = nuevoEstado;
+        }
+      },
+      (error) => {
+        console.error('Error al actualizar la orden', error);
+      }
+    );
+    if (nuevoEstado === 'HIGH') {
+      this.iniciarConteoTiempo(luzId);
+    }
+  }
   private actualizarEstadoServidor(luzId: number, nuevoEstado: string) {
     const url = `${environmet.url}/Orden/${luzId}`;
     const body = { statusLed: nuevoEstado };

@@ -1,0 +1,10 @@
+<section>
+  <div class="estadisticasLuces">
+  <button (click)="getDataFromServer()">Boton Prueba</button>
+      <tr *ngFor="let button of lucesButtons">
+    {{button.id}}
+    {{button.nombreLed}}
+    {{button.TiempoUsoHoras}}
+    {{button.TiempoApagarHoras}}
+  </div>
+</section>

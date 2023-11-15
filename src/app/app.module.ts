@@ -6,6 +6,7 @@ import { LucesComponent } from './components/luces/luces.component';
 import { PuertasComponent } from './components/puertas/puertas.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ControlEstadisticasComponent } from './components/control-estadisticas/control-estadisticas.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     LucesComponent,
     PuertasComponent,
     EstadisticasComponent,
+    ControlEstadisticasComponent,
   ],
   imports: [
     BrowserModule,

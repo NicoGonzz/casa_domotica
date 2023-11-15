@@ -1,10 +1,10 @@
 <div class="estadisticas">
-  <h4>Estadísticas de Puertas</h4>
-  <p>Puerta Principal: {{ getEstadoBoton(6) }}</p>
-  <p>Puerta Garage: {{ getEstadoBoton(7) }}</p>
-  <p>Veces Abierta la Puerta Principal: {{ vecesAbiertaPuertaPrincipal }}</p>
+  <h4>Estadísticas de puertas</h4>
+  <p>Puerta principal: {{ getEstadoBoton(6) }}</p>
+  <p>Puerta garage: {{ getEstadoBoton(7) }}</p>
+  <p>Cantidad de veces que fue abierta la puerta principal: {{ vecesAbiertaPuertaPrincipal }}</p>
   <p *ngIf="ultimaAperturaPuertaPrincipal">Última Apertura puerta principal: {{ ultimaAperturaPuertaPrincipal }}</p>
-  <p *ngIf="ultimaAperturaPuertaGarage">Última Apertura puerta principal: {{ ultimaAperturaPuertaGarage }}</p>
+  <p *ngIf="ultimaAperturaPuertaGarage">Última Apertura puerta garaje: {{ ultimaAperturaPuertaGarage }}</p>
 </div>
 
 <div class="puertas">

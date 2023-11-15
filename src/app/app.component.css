@@ -1,7 +1,6 @@
 .btn-back-to-main {
   background-color: #3E51B5;
   color: white;
-  width: 100%;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -15,3 +14,4 @@
 .btn-back-to-main i {
   margin-right: 8px;
 }
+

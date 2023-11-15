@@ -31,11 +31,11 @@ button {
   background-color: #3E51B5;
 }
 .boton-rojo {
-  background-color: red;
+  background-color: rgb(214, 14, 14);
 }
 
 .boton-verde {
-  background-color: green;
+  background-color: rgb(52, 156, 52);
 }
 button:hover {
   background-color: #2b3f8f;

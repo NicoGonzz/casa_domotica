@@ -1,0 +1,11 @@
+section{
+  background-color: #f3f8fb;
+
+}
+.estadisticasLuces {
+  background-color: #f3f8fb;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
