@@ -1,10 +1,27 @@
 <section>
   <div class="estadisticasLuces">
-  <button (click)="getDataFromServer()">Boton Prueba</button>
-      <tr *ngFor="let button of lucesButtons">
-    {{button.id}}
-    {{button.nombreLed}}
-    {{button.TiempoUsoHoras}}
-    {{button.TiempoApagarHoras}}
+    <button (click)="getDataFromServer()">Consulta el consumo del dia de ayer</button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre del LED</th>
+          <th>Tiempo de Uso (segundos)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let button of lucesButtons">
+          <td>{{ button.id }}</td>
+          <td>{{ button.nombreLed }}</td>
+          <td>{{ button.TiempoUsoSegundos }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
+<div class="control-estadisticas">
+    <h2>Estadísticas de tiempo de uso del 14/11/2023 por LED</h2>
+      <div>
+      <canvas id="usageChart" width="250" height="250"></canvas>
+    </div>
+</div>

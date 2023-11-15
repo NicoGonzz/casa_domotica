@@ -9,3 +9,21 @@ section{
   border-radius: 4px;
   margin-bottom: 16px;
 }
+.control-estadisticas {
+  text-align: center;
+}
+
+button {
+  display: flex;
+  width: 40%;
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 16px;
+  font-size: 12px;
+  background-color: #3E51B5;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin: 0 auto;
+}
